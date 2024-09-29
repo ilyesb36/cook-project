@@ -1,0 +1,50 @@
+<h1 class="title">Liste des Recettes</h1>
+
+<!-- Search bar -->
+<div class="flex space-x-4 my-4">
+  <input 
+    type="text" 
+    placeholder="Rechercher une recette" 
+    [(ngModel)]="searchQuery"
+    class="border border-gray-300 rounded p-2 flex-grow"
+  />
+  <button 
+    (click)="searchRecipes()" 
+    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+  >
+    Rechercher
+  </button>
+  <button 
+    (click)="resetSearch()" 
+    class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors"
+  >
+    Réinitialiser
+  </button>
+</div>
+
+<!-- Recipe List -->
+<ul class="recettes-list">
+  <li *ngFor="let recette of filteredRecettes" appHighlight class="recette-item">
+    <a [routerLink]="['/recettes', recette.id]" class="recette-link">{{ recette.title }}</a>
+    <p class="recette-description">{{ recette.description | truncate:30 }}</p>
+    <img [src]="recette?.imageUrl" alt="Image de la recette" class="recette-image mt-3 mb-3" />
+    <p class="recette-category">Catégorie : {{ recette.category }}</p>
+    <p class="recette-username">Créé par : {{ recette.username }}</p> 
+
+    <!-- Modify and Delete buttons -->
+    <div class="flex space-x-2 mt-2">
+      <button 
+        class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors"
+        (click)="editRecette(recette)"
+      >
+        Modifier
+      </button>
+      <button 
+        class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors"
+        (click)="deleteRecette(recette.id)"
+      >
+        Supprimer
+      </button>
+    </div>
+  </li>
+</ul>

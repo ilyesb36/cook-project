@@ -1,0 +1,30 @@
+<section class="login">
+  <form class="login_form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <h2>Connexion</h2>
+    <!-- Affichage du message si présent -->
+    <div *ngIf="message" class="text-red text-red-600 mb-4">
+      {{ message }}
+    </div>
+    <div class="login_form-container">
+      <input
+        type="text"
+        placeholder="Username"
+        class="input"
+        formControlName="username"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        class="input"
+        formControlName="password"
+      />
+    </div>
+    <button class="btn">Se connecter</button>
+  </form>
+  <p class="message">
+    Pas encore parmi nous ? 
+    <a routerLink="/register" class="login_register-link">
+      Créez un compte !
+    </a>
+  </p>
+</section>

@@ -1,0 +1,14 @@
+<header class="header">
+    <div class="header_user">
+        <a routerLink="/">Home</a>
+        <a routerLink="/recettes">Liste des Recettes</a>
+        <a routerLink="/ajouter-recette">Ajouter une Recette</a>
+    </div>
+    <div class="header_actions flex items-center"> <!-- Ajout de classes pour aligner -->
+        <h2>{{ getUsername }}</h2>
+        <button *ngIf="!isUserConnected; else logoutTemplate" class="btn-secondary" routerLink="/login">Se connecter</button>
+        <ng-template #logoutTemplate>
+            <button class="btn-secondary" (click)="logout()">Se déconnecter</button>
+        </ng-template>
+    </div>
+</header>

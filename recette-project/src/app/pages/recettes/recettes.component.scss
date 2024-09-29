@@ -1,0 +1,19 @@
+.title {
+  @apply text-3xl font-bold mb-4 text-center; // Titre centré avec une grande taille
+}
+
+.recettes-list {
+  @apply list-none p-0; // Enlève le style de liste par défaut
+}
+
+.recette-item {
+  @apply border-b border-gray-200 py-4 px-2 hover:bg-gray-100 transition duration-200; // Séparateur et style d'élément
+}
+
+.recette-link {
+  @apply text-blue-500 hover:text-blue-600 font-semibold; // Style pour le lien
+}
+
+.recette-description {
+  @apply text-gray-700 mt-1; // Style pour la description
+}

@@ -1,0 +1,26 @@
+.header {
+    @apply bg-blue-600 text-white p-4 flex justify-between items-center;
+  
+    .header_user {
+      @apply flex items-center space-x-4; // Espace entre les liens
+  
+      a {
+        @apply text-white hover:underline; // Couleur des liens et effet de soulignement
+      }
+    }
+  
+    .header_actions {
+      @apply flex items-center space-x-4; // Espace entre h2 et le bouton
+    }
+  
+    h2 {
+      @apply text-lg font-semibold; // Style pour le nom d'utilisateur
+    }
+  
+    .btn-secondary {
+      @apply bg-white text-black py-2 px-4 rounded transition duration-200 ease-in-out; // Styles de base pour le bouton
+    
+      // Nouveau style au survol
+      @apply hover:bg-sky-500 hover:text-white; // Change la couleur de fond et la couleur du texte
+    }
+  }

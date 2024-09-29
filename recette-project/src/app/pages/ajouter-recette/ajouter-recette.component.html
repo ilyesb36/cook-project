@@ -1,0 +1,63 @@
+<div class="form-container">
+  <form [formGroup]="recetteForm" (ngSubmit)="onSubmit()" class="form">
+    <h2 class="text-2xl font-bold mb-4">Ajouter une recette de cuisine :</h2> <!-- Titre stylisé -->
+
+    <!-- Titre -->
+    <div class="form-group">
+      <label for="title" class="label">Titre</label>
+      <input id="title" formControlName="title" class="input" />
+      <div *ngIf="recetteForm.controls['title'].invalid && recetteForm.controls['title'].touched" class="error-message">
+        <p *ngIf="recetteForm.controls['title'].errors?.['required']">Le titre est requis.</p>
+      </div>
+    </div>
+  
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description" class="label">Description</label>
+      <textarea id="description" formControlName="description" class="textarea"></textarea>
+      <div *ngIf="recetteForm.controls['description'].invalid && recetteForm.controls['description'].touched" class="error-message">
+        <p *ngIf="recetteForm.controls['description'].errors?.['required']">La description est requise.</p>
+        <p *ngIf="recetteForm.controls['description'].errors?.['minLength']">La description doit contenir au moins 10 caractères.</p>
+      </div>
+    </div>
+
+    <!-- URL de l'image -->
+    <div class="form-group">
+      <label for="imageUrl" class="label">URL de l'image</label>
+      <input id="imageUrl" formControlName="imageUrl" class="input" />
+      <div *ngIf="recetteForm.controls['imageUrl'].invalid && recetteForm.controls['imageUrl'].touched" class="error-message">
+        <p *ngIf="recetteForm.controls['imageUrl'].errors?.['required']">L'URL de l'image est requise.</p>
+      </div>
+    </div>
+
+    <!-- Catégorie -->
+    <div class="form-group">
+      <label for="category" class="label">Catégorie</label>
+      <select id="category" formControlName="category" class="input">
+        <option value="">Sélectionner une catégorie</option>
+        <option value="Entrée">Entrée</option>
+        <option value="Plat">Plat</option>
+        <option value="Dessert">Dessert</option>
+      </select>
+      <div *ngIf="recetteForm.controls['category'].invalid && recetteForm.controls['category'].touched" class="error-message">
+        <p *ngIf="recetteForm.controls['category'].errors?.['required']">La catégorie est requise.</p>
+      </div>
+    </div>
+
+    <!-- Ingrédients -->
+    <div class="form-group">
+      <label for="ingredients" class="label">Ingrédients</label>
+      <textarea id="ingredients" formControlName="ingredients" placeholder="Ingrédients (séparés par des virgules)" class="textarea"></textarea>
+      <div *ngIf="recetteForm.controls['ingredients'].invalid && recetteForm.controls['ingredients'].touched" class="error-message">
+        <p *ngIf="recetteForm.controls['ingredients'].errors?.['required']">Les ingrédients sont requis.</p>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-button">Ajouter</button>
+  
+    <!-- Afficher le message de succès -->
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<section class="recette-details">
+  <h1 class="recette-title">{{ recette?.title }}</h1>
+  <div class="recette-content">
+    <img [src]="recette?.imageUrl" alt="Image de la recette" class="recette-image" />
+    <div class="recette-info">
+      <p class="recette-description">{{ recette?.description }}</p>
+      <p class="recette-category"><strong>Catégorie :</strong> {{ recette?.category }}</p>
+      <p class="recette-ingredients"><strong>Ingrédients :</strong> {{ recette?.ingredients }}</p>
+      <p class="recette-username"><strong>Ajoutée par :</strong> {{ recette?.username }}</p>
+    </div>
+  </div>
+  <!-- Lien stylisé comme un bouton -->
+  <button type="button" routerLink="/recettes" class="back-button">Retour à la liste</button>
+</section>
